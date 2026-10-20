@@ -1,17 +1,32 @@
-# Imports to use the functions in DOW
-from dow import getDayOfTheWeek
-from dow import makeCalendar
+# Imports to access the functions
+from spotify import add_song
+from spotify import record_listen
+from spotify import generate_wrapped
 
-# Prints out each day of the week of 2026
-print(makeCalendar())
-
-# Repeats the inputs
+# Loops the menu
 while True:
-    # Inputs
-    inputYear = str(input("Enter the year: "))
-    inputMonth = str(input("Enter the month: "))
-    inputDay = str(input("Enter the day: "))
+    # Menu
+    print("""
+========== SPOTIFY WRAPPED ==========
+1. Add a song
+2. Record a listen
+3. Generate Spotify Wrapped
+4. Exit
+=====================================""")
+    
+    # User input
+    user_input = int(input("Enter your choice: "))
+    print("=====================================")
 
-    # Prints the result
-    print(getDayOfTheWeek(inputYear, inputMonth, inputDay))
-    print("===============================================")
+    # Input selected
+    if user_input == 1:
+        add_song()
+    elif user_input == 2:
+        record_listen()
+    elif user_input == 3:
+        generate_wrapped()
+    elif user_input == 4:
+        print("Goodbye!")
+        break
+    else:
+        print("INVALID! PLEASE TRY AGAIN!")
